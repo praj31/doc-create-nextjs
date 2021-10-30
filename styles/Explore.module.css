@@ -1,0 +1,30 @@
+.header {
+	display: flex;
+}
+
+.navigation {
+	flex: 2;
+	display: flex;
+	align-items: center;
+}
+
+.searchbar {
+	flex: 1;
+}
+
+.navigation div {
+	height: 100%;
+	font-size: 0.9rem;
+	margin-right: 0.5rem;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+}
+
+.navigation div:hover {
+	cursor: pointer;
+}
+
+.activeTab {
+	background-color: var(--bg-2);
+	font-weight: bold;
+}

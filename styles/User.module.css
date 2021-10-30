@@ -1,0 +1,208 @@
+.navigation,
+.navigate_back {
+	font-size: 0.8rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.navigation div {
+	padding: 0.8rem 1rem;
+	border-radius: 0.5rem;
+}
+
+.navigate_back div {
+	display: flex;
+	align-items: center;
+	padding: 0.8rem 1rem;
+	border-radius: 0.5rem;
+	background-color: var(--bg-2);
+}
+
+.navigate_back div svg {
+	font-size: 1.25rem;
+	margin-right: 0.5rem;
+	transition: all 50ms linear;
+}
+
+.navigation div:hover,
+.navigate_back div:hover {
+	cursor: pointer;
+}
+
+.navigate_back div:hover>svg {
+	transform: translateX(-0.2rem);
+}
+
+.activeTab {
+	font-weight: bold;
+	background-color: var(--bg-2);
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	max-height: 80vh;
+	overflow: auto;
+	padding-bottom: 1rem;
+}
+
+.projectcard {
+	margin: 0 0.5rem 1.5rem;
+}
+
+.savedcard {
+	margin-bottom: 1.5rem;
+}
+
+.projectcard,
+.savedcard {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	background-color: var(--blue-tint);
+}
+
+.projectcard__header,
+.savedcard__header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 0.5rem;
+}
+
+.projectcard__header p,
+.savedcard__header p {
+	font-weight: bold;
+	font-size: 1.1rem;
+}
+
+.projectcard__header div svg,
+.savedcard__header div svg {
+	font-size: 1.25rem;
+	margin-left: 1rem;
+	transform: rotate(0);
+	transition: transform 50ms linear;
+}
+
+.projectcard__header svg:hover,
+.savedcard__header svg:hover {
+	cursor: pointer;
+	transform: rotate(30deg);
+}
+
+.projectcard__content p,
+.savedcard__content p {
+	font-size: 0.8rem;
+	padding: 0.5rem 0 1rem;
+}
+
+.savedcard__creator {
+	margin-bottom: 0.2rem;
+	display: flex;
+	align-items: center;
+}
+
+.savedcard__creator__info {
+	font-size: 0.8rem;
+}
+
+.newProject,
+.newChapter {
+	display: flex;
+	align-items: center;
+	font-size: 0.8rem;
+	background-color: var(--yellow-tint);
+	padding: 0.8rem 1rem;
+	border-radius: 0.5rem;
+}
+
+.newProject svg,
+.newChapter svg {
+	font-size: 1.25rem;
+	margin-right: 1rem;
+	transition: all 50ms linear;
+}
+
+.newProject:hover,
+.newChapter:hover,
+.update:hover {
+	cursor: pointer;
+}
+
+.newProject:hover>svg,
+.newChapter:hover>svg {
+	transform: scale(1.2);
+}
+
+.chaptercard {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+	margin: 0 0.5rem;
+	border-radius: 0.5rem;
+	transition: all 100ms linear;
+}
+
+.chaptercard__title {
+	font-weight: bold;
+	padding: 0.1rem;
+	font-size: 0.9rem;
+	margin-right: 1rem;
+}
+
+.chaptercard__title:hover {
+	cursor: pointer;
+}
+
+.chaptercard__action {
+	display: none;
+	place-items: center;
+}
+
+.chaptercard__action svg {
+	font-size: 1.25rem;
+}
+
+.chaptercard:hover {
+	background-color: var(--bg-2);
+}
+
+.chaptercard__action svg:hover {
+	cursor: pointer;
+	transform: rotate(30deg);
+}
+
+
+.chaptercard:hover .chaptercard__action {
+	display: grid;
+}
+
+.update_btn {
+	font-size: 0.8rem;
+	font-weight: bold;
+	background-color: var(--blue);
+	color: #ffffff;
+	padding: 0.8rem 1rem;
+	border-radius: 0.5rem;
+}
+
+.update_btn:hover {
+	cursor: pointer;
+}
+
+.actions {
+	display: flex;
+	flex-direction: column;
+}
+
+.actions button {
+	width: 100%;
+	margin-bottom: 1rem;
+	padding: 0.8rem 1rem;
+}
+
+.editor {
+	padding: 16px;
+	border: 1px solid #bfbfbf;
+}

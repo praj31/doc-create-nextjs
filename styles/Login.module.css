@@ -1,0 +1,124 @@
+.wrapper {
+	width: 100%;
+	height: 100vh;
+	max-height: 100vh;
+	background-color: #ffffff;
+	display: grid;
+	place-items: center;
+}
+
+.container {
+	width: 25%;
+	padding: 1.5rem;
+	background-color: #ffffff;
+	color: #1a1a1a;
+	display: flex;
+	flex-direction: column;
+}
+
+.container div {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 0.3rem;
+}
+
+.container button {
+	color: #1a1a1a;
+}
+
+.logo,
+.title,
+.social_login,
+.signup,
+.forgot_password {
+	align-items: center;
+}
+
+.title {
+	margin-bottom: 1rem !important;
+}
+
+.login_form input {
+	margin-bottom: 0.4rem !important;
+	font-size: 0.8rem;
+}
+
+.login_form button {
+	width: 100%;
+	padding: 0.5rem;
+	background-color: #00bdff;
+	color: #ffffff;
+}
+
+.social_login {
+	position: relative;
+}
+
+.separator {
+	font-size: 0.7rem;
+}
+
+.separator::before,
+.separator::after {
+	content: '';
+	position: absolute;
+	width: 46%;
+	height: 1px;
+	background-color: #cccccc;
+	top: 7px;
+}
+
+.separator::before {
+	left: -1%;
+}
+
+.separator::after {
+	right: -1%;
+}
+
+.google_login,
+.apple_login {
+	width: 100%;
+	padding: 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 0.5rem;
+}
+
+.google_login {
+	color: #ffffff !important;
+	background-color: #e16259;
+}
+
+.apple_login {
+	background-color: transparent;
+	border: 1px solid #1a1a1a;
+}
+
+
+.social_login button svg {
+	margin-right: 0.5rem;
+	width: 0.75rem;
+	height: 0.75rem;
+}
+
+.signup {
+	border-top: 1px solid #cccccc;
+	padding-top: 0.8rem;
+	font-size: 0.8rem;
+}
+
+.forgot_password button {
+	width: 100%;
+	font-size: 0.8rem;
+	margin-top: 0.4rem;
+	background-color: transparent;
+}
+
+.google_login:hover,
+.apple_login:hover,
+.login_form button:hover,
+.forgot_password button:hover {
+	cursor: pointer;
+}

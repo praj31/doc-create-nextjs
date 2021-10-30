@@ -1,0 +1,104 @@
+.navigation {
+	font-size: 0.8rem;
+	display: flex;
+	flex-direction: column;
+	padding-right: 0.5rem;
+	max-height: 80vh;
+	overflow-y: auto;
+}
+
+.navigation div {
+	padding: 0.8rem 1rem;
+	border-radius: 0.5rem;
+	margin-bottom: 0.2rem;
+}
+
+.navigation div:hover {
+	cursor: pointer;
+	background-color: var(--bg-2);
+}
+
+.activeTab {
+	font-weight: bold;
+	background-color: var(--bg-2);
+}
+
+.content {
+	width: 100%;
+	padding-right: 1rem;
+	max-height: 85vh;
+	overflow-y: auto;
+}
+
+.header {
+	padding: 1rem;
+	background-color: var(--blue-tint);
+	border-radius: 0.5rem;
+}
+
+.header h1 {
+	font-size: 2.5rem;
+	margin-bottom: 2rem;
+}
+
+.meta {
+	display: flex;
+}
+
+.meta div {
+	margin-right: 1rem;
+}
+
+.user_info {
+	font-size: 0.9rem;
+}
+
+.save svg {
+	font-size: 1.25rem;
+}
+
+.save svg:hover {
+	cursor: pointer;
+}
+
+.chapter_content {
+	margin: 1.5rem 0;
+}
+
+.chapter_content h1,
+.chapter_content h2 {
+	margin-bottom: 1rem;
+}
+
+.chapter_content h1 {
+	font-size: 1.5rem;
+}
+
+.chapter_content h2 {
+	font-size: 1.2rem;
+}
+
+.chapter_content h3 {
+	font-size: 1rem;
+}
+
+.chapter_content h4 {
+	font-size: 1rem;
+	font-weight: normal;
+}
+
+.chapter_content h5 {
+	font-size: 0.9rem;
+	font-weight: bold;
+}
+
+.chapter_content h6 {
+	font-size: 0.9rem;
+	font-style: italic;
+}
+
+.chapter_content p {
+	font-size: 0.9rem;
+	line-height: 1.5;
+	margin-bottom: 1.5rem;
+}

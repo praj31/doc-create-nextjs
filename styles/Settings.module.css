@@ -1,0 +1,89 @@
+.content {
+	display: flex;
+	flex-direction: column;
+	max-height: 80vh;
+	overflow: auto;
+	padding-bottom: 1rem;
+}
+
+.content h3 {
+	margin: 2rem 0 1rem;
+}
+
+.content h3:first-child {
+	margin-top: 0;
+}
+
+.profile_picture,
+.upload_image {
+	margin: 0.5rem 0;
+}
+
+.profile_picture {
+	min-width: 12rem;
+	min-height: 12rem;
+	max-width: 12rem;
+	max-height: 12rem;
+	overflow: hidden;
+	border-radius: 50%;
+	background-color: var(--bg-2);
+}
+
+.profile_picture img {
+	width: 100%;
+}
+
+.upload_image button,
+.delete_account button {
+	display: flex;
+	align-items: center;
+	font-size: 0.9rem;
+	padding: 0.8rem 1rem;
+	background-color: transparent;
+	border-radius: 0.5rem;
+	border: var(--border-generic);
+	transition: all 150ms linear;
+}
+
+.upload_image button svg,
+.delete_account button svg {
+	margin-right: 0.5rem;
+	font-size: 1rem;
+}
+
+.upload_image button:hover {
+	background-color: var(--blue);
+	cursor: pointer;
+}
+
+.bio,
+.change_password {
+	display: flex;
+	flex-direction: column;
+}
+
+.content label {
+	font-size: 0.8rem;
+}
+
+.content input,
+.content textarea {
+	width: 80%;
+	margin: 0.1rem 0 1.5rem;
+	font-size: 0.9rem;
+	padding: 0.5rem;
+}
+
+.delete_account span {
+	font-size: 0.75rem;
+}
+
+.delete_account button {
+	background-color: #eb2727;
+	color: #fff;
+	margin-bottom: 0.5rem;
+}
+
+.delete_account button:hover {
+	cursor: pointer;
+}
