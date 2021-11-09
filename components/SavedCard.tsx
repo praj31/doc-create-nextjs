@@ -19,9 +19,9 @@ export const SavedCard: React.FunctionComponent<Props> = ({
         </div>
       </div>
       <div className={styles.savedcard__creator}>
-        <div className={styles.savedcard__creator__info}>
+        {/* <div className={styles.savedcard__creator__info}>
           Creator Name &bull; @username
-        </div>
+        </div> */}
       </div>
       <div className={styles.savedcard__content}>
         <p>{projectDescription}</p>

@@ -1,16 +1,31 @@
 import Head from 'next/head'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useContext } from 'react'
 import { IoSearchOutline } from 'react-icons/io5'
 import { Layout } from '../../components/layout'
 import { SavedCard } from '../../components/SavedCard'
 import { ActiveLinkContext } from '../../context'
+import { searchDocument } from '../../services/DocumentHandlers'
+import { getJSONCookie } from '../../utils/cookie-helper'
 
 const Saved: React.FunctionComponent = (): JSX.Element => {
   const { setLink } = useContext(ActiveLinkContext)
+  const [data, setdata] = useState<any[]>([])
+  useEffect(() => {
+    setLink('saved')
+    const user = getJSONCookie('user')
+    getData(user.bookmarks)
+  }, [])
 
-  useEffect(() => setLink('saved'))
-
+  const getData = (bookmarks: string[]) => {
+    let finalData: any[] = []
+    bookmarks.forEach(async (element) => {
+      const data = await searchDocument(element)
+      finalData.push(data.data.data)
+    })
+    setdata(finalData)
+  }
+  console.log(data)
   return (
     <>
       <Head>
@@ -23,10 +38,12 @@ const Saved: React.FunctionComponent = (): JSX.Element => {
           </div>
           <input type="text" placeholder="Search saved projects" />
         </div>
-        <SavedCard
-          projectTitle="Project Title"
-          projectDescription="A simple description of the project in limited number of characters."
-        />
+        {data.map((element) => (
+          <SavedCard
+            projectTitle={element.documentName}
+            projectDescription={element.description}
+          />
+        ))}
       </Layout>
     </>
   )

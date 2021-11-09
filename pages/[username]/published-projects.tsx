@@ -1,18 +1,37 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useContext } from 'react'
 import { Layout } from '../../components/layout'
 import { ActiveLinkContext } from '../../context'
 import { PublishedProjectCard } from '../../components/PublishedProjectCard'
 import styles from '../../styles/User.module.css'
+import { getJSONCookie } from '../../utils/cookie-helper'
+import {
+  getpublishedProjects,
+  updateProject,
+} from '../../services/DocumentHandlers'
 
 const PublishedProjects: React.FunctionComponent = (): JSX.Element => {
   const { setLink } = useContext(ActiveLinkContext)
+  const [publishedDocs, setpublishedDocs] = useState([])
+  useEffect(() => {
+    data()
+    setLink('home')
+  }, [])
 
-  useEffect(() => setLink('home'))
+  const data = async () => {
+    const user = getJSONCookie('user')
+    const data = await getpublishedProjects(user.id)
+    setpublishedDocs(data.data.data)
+  }
 
-  const edit = () => {}
+  const edit = async (item: any, index: number) => {
+    try {
+      await updateProject(item.slug, 'ongoing')
+      data()
+    } catch (error) {}
+  }
 
   return (
     <>
@@ -30,12 +49,15 @@ const PublishedProjects: React.FunctionComponent = (): JSX.Element => {
             </Link>
           </div>
           <div className={styles.content}>
-            <PublishedProjectCard
-              projectTitle="React Music Player"
-              projectDescription="A music player built using React Typescript."
-              ctaLabel="Edit Project"
-              ctaAction={edit}
-            />
+            {publishedDocs.map((item: any, index) => (
+              <PublishedProjectCard
+                key={index}
+                projectTitle={item.documentName}
+                projectDescription={item.description}
+                ctaLabel="Edit Project"
+                ctaAction={() => edit(item, index)}
+              />
+            ))}
           </div>
         </div>
       </Layout>

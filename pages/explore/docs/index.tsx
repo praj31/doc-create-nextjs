@@ -5,12 +5,20 @@ import { useContext } from 'react'
 import { IoSearchOutline } from 'react-icons/io5'
 import { Layout } from '../../../components/layout'
 import { ActiveLinkContext } from '../../../context'
+import { queryDocument } from '../../../services/DocumentHandlers'
 import styles from '../../../styles/Explore.module.css'
 
 const Docs: React.FunctionComponent = (): JSX.Element => {
   const { setLink } = useContext(ActiveLinkContext)
 
   useEffect(() => setLink('explore'))
+
+   const onChangeData = async (e: any) => {
+     const query = e.target.value
+     const data = await queryDocument(query)
+     console.log('data --- ', data.data.data)
+   }
+
   return (
     <>
       <Head>
@@ -30,7 +38,11 @@ const Docs: React.FunctionComponent = (): JSX.Element => {
             <div>
               <IoSearchOutline />
             </div>
-            <input type="text" placeholder="Search docs on community" />
+            <input
+              onChange={onChangeData}
+              type="text"
+              placeholder="Search docs on community"
+            />
           </div>
         </div>
       </Layout>

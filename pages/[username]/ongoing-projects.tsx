@@ -8,17 +8,34 @@ import { OngoingProjectCard } from '../../components/OngoingProjectCard'
 import { IoAddOutline } from 'react-icons/io5'
 import styles from '../../styles/User.module.css'
 import { NewProjectModal } from '../../components/NewProjectModal'
+import { getJSONCookie } from '../../utils/cookie-helper'
+import { getProjects, updateProject } from '../../services/DocumentHandlers'
 
 const OngoingProjects: React.FunctionComponent = (): JSX.Element => {
   const { setLink } = useContext(ActiveLinkContext)
-
+  const [documents, setdocuments] = useState([])
   const [showNewProjectModal, setShowNewProjectModal] = useState<boolean>(false)
 
   useEffect(() => {
+    getData()
     setLink('home')
-  })
+  }, [])
 
-  const publish = () => {}
+  const getData = async () => {
+    const data = await getProjects()
+    setdocuments(data.data.data)
+  }
+
+  const changeStatus = async (item: any, index: number) => {
+    try {
+      await updateProject(item.slug, 'Published')
+      let newData = await getProjects()
+      setdocuments(newData.data.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 
   return (
     <>
@@ -36,12 +53,18 @@ const OngoingProjects: React.FunctionComponent = (): JSX.Element => {
             </Link>
           </div>
           <div className={styles.content}>
-            <OngoingProjectCard
-              projectTitle="Programming in C++"
-              projectDescription="An introduction to object oriented programming using C++ for complete beginners."
-              ctaLabel="Publish"
-              ctaAction={publish}
-            />
+            {documents.map(
+              (item: any, index: number) =>
+                item.status === 'ongoing' && (
+                  <OngoingProjectCard
+                    key={index}
+                    projectTitle={item.documentName}
+                    projectDescription={item.description}
+                    ctaLabel={item.status === 'ongoing' ? 'Publish' : 'Ongoing'}
+                    ctaAction={() => changeStatus(item, index)}
+                  />
+                )
+            )}
           </div>
           <div>
             <div

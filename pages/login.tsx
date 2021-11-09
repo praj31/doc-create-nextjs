@@ -1,16 +1,27 @@
+import axios from 'axios'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import { LOGIN_URL } from '../constants/constants'
+import { LoginHandler } from '../services/AuthHandlers'
 import styles from '../styles/Login.module.css'
+import { saveCookie, saveJSONCookie } from '../utils/cookie-helper'
 
 const Login: React.FunctionComponent = (): JSX.Element => {
   const router = useRouter()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('harvey@gmail.com')
+  const [password, setPassword] = useState('test0000')
 
-  const login = () => {
-    router.push('/username/ongoing-projects')
+  const login = async () => {
+    try {
+      const { data, error } = await LoginHandler(email, password)
+      saveJSONCookie('user', data.data)
+      saveCookie('token', data.data.access_token)
+      router.push('/username/ongoing-projects')
+    } catch (error) {
+      console.log('LogIn Page Error --- ', error)
+    }
   }
 
   return (
