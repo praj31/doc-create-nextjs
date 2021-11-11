@@ -13,11 +13,11 @@ const Docs: React.FunctionComponent = (): JSX.Element => {
 
   useEffect(() => setLink('explore'))
 
-   const onChangeData = async (e: any) => {
-     const query = e.target.value
-     const data = await queryDocument(query)
-     console.log('data --- ', data.data.data)
-   }
+  const onChangeData = async (e: any) => {
+    const query = e.target.value
+    const data = await queryDocument(query)
+    console.log('data --- ', data.data.data)
+  }
 
   return (
     <>
@@ -45,6 +45,7 @@ const Docs: React.FunctionComponent = (): JSX.Element => {
             />
           </div>
         </div>
+        <div className={styles.searched_content}></div>
       </Layout>
     </>
   )

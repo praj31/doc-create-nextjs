@@ -48,6 +48,7 @@ const CommunityUsers: React.FunctionComponent = (): JSX.Element => {
             />
           </div>
         </div>
+        <div className={styles.searched_content}></div>
       </Layout>
     </>
   )
