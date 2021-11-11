@@ -1,30 +1,129 @@
 .header {
-	display: flex;
+  display: flex;
 }
 
 .navigation {
-	flex: 2;
-	display: flex;
-	align-items: center;
+  flex: 2;
+  display: flex;
+  align-items: center;
 }
 
 .searchbar {
-	flex: 1;
+  flex: 1;
 }
 
 .navigation div {
-	height: 100%;
-	font-size: 0.9rem;
-	margin-right: 0.5rem;
-	padding: 0.5rem 1rem;
-	border-radius: 0.5rem;
+  height: 100%;
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
 }
 
 .navigation div:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .activeTab {
-	background-color: var(--bg-2);
-	font-weight: bold;
+  background-color: var(--bg-2);
+  font-weight: bold;
+}
+
+.searched_content {
+  margin: 2rem 0;
+}
+
+.docprojectcard {
+  margin-bottom: 1.5rem;
+}
+
+.docprojectcard,
+.docusercard {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--blue-tint);
+}
+
+.docprojectcard__header,
+.docusercard__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.docprojectcard__header p,
+.docusercard__header p {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.docprojectcard__content p,
+.docusercard__content p {
+  font-size: 0.8rem;
+  padding: 0.5rem 0 1rem;
+}
+
+.docprjectcard__creator,
+.docusercard__creator {
+  margin-bottom: 0.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.docprojectcard__creator__info,
+.docusercard__creator__info {
+  font-size: 0.8rem;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile__avatar {
+  min-width: 12rem;
+  min-height: 12rem;
+  max-width: 12rem;
+  max-height: 12rem;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: var(--bg-2);
+}
+
+.profile__avatar img {
+  width: 100%;
+}
+
+.profile__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.profile__header h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.profile__header h3 {
+  font-weight: normal;
+  font-size: 0.9rem;
+}
+
+.profile__projects {
+  width: 75vw;
+  margin: 2rem 0;
+}
+
+.profile__projects h4 {
+  padding-bottom: 0.2rem;
+  border-bottom: var(--border-generic);
+}
+
+.profile__projects__list {
+  margin: 1.5rem 0;
 }
