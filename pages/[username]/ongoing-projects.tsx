@@ -58,6 +58,7 @@ const OngoingProjects: React.FunctionComponent = (): JSX.Element => {
                 item.status === 'ongoing' && (
                   <OngoingProjectCard
                     key={index}
+                    id={item.id}
                     projectTitle={item.documentName}
                     projectDescription={item.description}
                     ctaLabel={item.status === 'ongoing' ? 'Publish' : 'Ongoing'}

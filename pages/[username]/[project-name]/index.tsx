@@ -1,14 +1,27 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Layout } from '../../../components/layout'
 import { IoAddOutline, IoChevronBackOutline } from 'react-icons/io5'
 import { NewChapterModal } from '../../../components/NewChapterModal'
 import { ChapterCard } from '../../../components/ChapterCard'
 import styles from '../../../styles/User.module.css'
+import { getTitlesOfDocument } from '../../../services/DocumentHandlers'
+import { useRouter } from 'next/router'
 
 const Project: React.FunctionComponent = (): JSX.Element => {
   const [showNewChapterModal, setShowNewChapterModal] = useState<boolean>(false)
+  const location = useRouter()
+  const [titles, settitles] = useState([])
+  useEffect(() => {
+    const getTitles = async (docId: any) => {
+      const data = await getTitlesOfDocument(docId)
+      console.log('Data ---- ', data.data.data)
+      settitles(data.data.data)
+    }
+    const docId = location.query['project-name']
+    getTitles(docId)
+  }, [])
 
   return (
     <>
@@ -25,12 +38,13 @@ const Project: React.FunctionComponent = (): JSX.Element => {
             </Link>
           </div>
           <div className={styles.content}>
-            <ChapterCard chapterTitle="Introduction" />
-            <ChapterCard chapterTitle="Comments, Variables and Datatypes" />
-            <ChapterCard chapterTitle="Operators" />
-            <ChapterCard chapterTitle="Decision Making Syntax" />
-            <ChapterCard chapterTitle="Looping" />
-            <ChapterCard chapterTitle="Class and Object" />
+            {titles.map((item: any, index: number) => (
+              <ChapterCard
+                key={index}
+                chapterTitle={item.title}
+                slug={item.slug}
+              />
+            ))}
           </div>
           <div>
             <div

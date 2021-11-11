@@ -7,20 +7,43 @@ import { stateToHTML } from 'draft-js-export-html'
 import { EditorState } from 'draft-js'
 import styles from '../../../../styles/User.module.css'
 import { RichTextEditor } from '../../../../components/RichTextEditor'
+import { useRouter } from 'next/router'
+import { getPageData, updatePageData } from '../../../../services/PageHandler'
 
 const TextEditor: React.FunctionComponent = (): JSX.Element => {
   const [editor, setEditor] = useState<boolean>(false)
-
+  const router = useRouter()
+  const [slug, setslug] = useState<any>('')
   const [changesActive, setChangesActive] = useState<boolean>(true)
 
   const [editorState, setEditorState] = useState<EditorState>(
     EditorState.createEmpty()
   )
 
-  const handleSaveChanges = () => {
-    const html = stateToHTML(editorState.getCurrentContent())
-    setChangesActive(true)
-    console.log(html)
+  const chapterName = router.query['chapter-name']
+
+  useEffect(() => {
+    const pageSlug = router.query['chapter-name']
+    if (pageSlug) {
+      setslug(pageSlug)
+      getData(pageSlug)
+    }
+  }, [chapterName])
+
+  const getData = async (slug: any) => {
+    const getData = await getPageData(slug)
+    console.log(getData.data.data.content)
+    // setEditorState(getData.data.data.content)
+  }
+
+  const handleSaveChanges = async () => {
+    try {
+      const html = stateToHTML(editorState.getCurrentContent())
+      setChangesActive(true)
+      console.log('Slug --- ', slug)
+      const data = await updatePageData(slug, html)
+      console.log('Data ', data)
+    } catch (error) {}
   }
 
   const handleEditorStateChange = (editorstate: EditorState) => {

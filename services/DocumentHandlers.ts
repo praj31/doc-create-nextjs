@@ -5,6 +5,7 @@ import {
   CREATE_DOCUMENT,
   DATA_OF_PUBLISHED_DOC,
   SEARCH_DOCUMENT,
+  GET_TITLES,
 } from '../constants/constants'
 import { getRequest, postRequest, putRequest } from '../utils/http-helper'
 
@@ -54,3 +55,10 @@ export const queryDocument = async (query: string) => {
     url:SEARCH_DOCUMENT(query)
   })
 }
+
+export const getTitlesOfDocument = async (docId: String) => {
+  return await getRequest({
+    url:GET_TITLES(docId)
+  })
+}
+

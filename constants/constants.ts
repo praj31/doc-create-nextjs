@@ -48,12 +48,16 @@ export const DELETE_DOC = (slug: string): string => {
 
 export const CREATE_PAGE = `${BASE_URL}/page/create-page`
 
-export const GET_TITLES = (slug: string): string => {
+export const GET_TITLES = (slug: String): string => {
   return `${BASE_URL}/page/getTitles/${slug}`
 }
 
-export const GET_PAGE_DATA = (slug: string): string => {
+export const PUBLISHED_PAGE_DATA = (slug: string): string => {
   return `${BASE_URL}/page/${slug}`
+}
+
+export const ONGOING_PAGE_DATA = (slug: string): string => {
+  return `${BASE_URL}/page/ongoing/${slug}`
 }
 
 export const UPDATE_PAGE = (slug: string): string => {
