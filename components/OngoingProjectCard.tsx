@@ -8,12 +8,14 @@ interface Props {
   projectDescription: string
   id: string
   ctaLabel: string
+  username: string
   ctaAction: () => void
 }
 
 export const OngoingProjectCard: React.FunctionComponent<Props> = ({
   projectTitle,
   id,
+  username,
   projectDescription,
   ctaLabel,
   ctaAction,
@@ -31,7 +33,7 @@ export const OngoingProjectCard: React.FunctionComponent<Props> = ({
         <p>{projectDescription}</p>
       </div>
       <div className={styles.projectcard__action}>
-        <Link href={`/username/${id}`}>
+        <Link href={`/${username}/${id}`}>
           <button className="btn-secondary">Edit</button>
         </Link>
         <button className="btn-primary" onClick={ctaAction}>

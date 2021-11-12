@@ -15,14 +15,18 @@ const OngoingProjects: React.FunctionComponent = (): JSX.Element => {
   const { setLink } = useContext(ActiveLinkContext)
   const [documents, setdocuments] = useState([])
   const [showNewProjectModal, setShowNewProjectModal] = useState<boolean>(false)
+  const [username, setusername] = useState('')
 
   useEffect(() => {
+    const user = getJSONCookie('user')
+    setusername(user.username)
     getData()
     setLink('home')
   }, [])
 
   const getData = async () => {
     const data = await getProjects()
+    console.log(data.data.data)
     setdocuments(data.data.data)
   }
 
@@ -36,7 +40,6 @@ const OngoingProjects: React.FunctionComponent = (): JSX.Element => {
     }
   }
 
-
   return (
     <>
       <Head>
@@ -45,10 +48,10 @@ const OngoingProjects: React.FunctionComponent = (): JSX.Element => {
       <Layout>
         <div className="grid-121">
           <div className={styles.navigation}>
-            <Link href="/username/ongoing-projects">
+            <Link href={`/${username}/ongoing-projects`}>
               <div className={styles.activeTab}>Ongoing Projects</div>
             </Link>
-            <Link href="/username/published-projects">
+            <Link href={`/${username}/published-projects`}>
               <div>Published Projects</div>
             </Link>
           </div>
@@ -58,7 +61,8 @@ const OngoingProjects: React.FunctionComponent = (): JSX.Element => {
                 item.status === 'ongoing' && (
                   <OngoingProjectCard
                     key={index}
-                    id={item.id}
+                    id={item.slug}
+                    username={username}
                     projectTitle={item.documentName}
                     projectDescription={item.description}
                     ctaLabel={item.status === 'ongoing' ? 'Publish' : 'Ongoing'}

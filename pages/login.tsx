@@ -18,7 +18,7 @@ const Login: React.FunctionComponent = (): JSX.Element => {
       const { data, error } = await LoginHandler(email, password)
       saveJSONCookie('user', data.data)
       saveCookie('token', data.data.access_token)
-      router.push('/username/ongoing-projects')
+      router.push(`/${data.data.username}/ongoing-projects`)
     } catch (error) {
       console.log('LogIn Page Error --- ', error)
     }

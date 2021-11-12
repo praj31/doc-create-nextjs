@@ -3,15 +3,15 @@ import styles from '../styles/Explore.module.css'
 interface Props {
   projectTitle: string
   projectDescription: string
-  creatorname: string
-  username: string
+  // creatorname: string
+  // username: string
 }
 
 export const DocProjectCard: React.FunctionComponent<Props> = ({
   projectTitle,
   projectDescription,
-  creatorname,
-  username,
+  // creatorname,
+  // username,
 }): JSX.Element => {
   return (
     <div className={styles.docprojectcard}>
@@ -19,9 +19,9 @@ export const DocProjectCard: React.FunctionComponent<Props> = ({
         <p>{projectTitle}</p>
       </div>
       <div className={styles.docprojectcard__creator}>
-        <div className={styles.docprojectcard__creator__info}>
+        {/* <div className={styles.docprojectcard__creator__info}>
           {creatorname} &bull; @{username}
-        </div>
+        </div> */}
       </div>
       <div className={styles.docprojectcard__content}>
         <p>{projectDescription}</p>

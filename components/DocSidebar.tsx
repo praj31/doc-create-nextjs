@@ -1,14 +1,27 @@
 import styles from '../styles/Document.module.css'
 
-export const DocSidebar: React.FunctionComponent = (): JSX.Element => {
+interface Props {
+  titles: any[]
+  currentChapter: any
+  changeChapter: any
+}
+
+export const DocSidebar: React.FunctionComponent<Props> = ({
+  titles,
+  currentChapter,
+  changeChapter,
+}): JSX.Element => {
   return (
     <div className={styles.navigation}>
-      <div className={styles.activeTab}>Introduction</div>
-      <div>Comments, Variables and Datatypes</div>
-      <div>Operators</div>
-      <div>Decision Making Syntax</div>
-      <div>Looping</div>
-      <div>Class and Object</div>
+      {titles.map((element, index: number) => (
+        <div
+          onClick={() => changeChapter(index)}
+          // className={index === currentChapter ? styles.activeTab : ''}
+          key={index}
+        >
+          {element.title}
+        </div>
+      ))}
     </div>
   )
 }

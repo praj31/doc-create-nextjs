@@ -14,6 +14,10 @@ export const SEARCH_USERS = (query: string) => {
   return `${BASE_URL}/users/search?search=${query}`
 }
 
+export const GET_USER_DETAILS = (username: string) => {
+  return `${BASE_URL}/users?username=${username}`
+}
+
 export const UPDATE_USER = `${BASE_URL}/users`
 
 export const DELETE_USER = `${BASE_URL}/users`

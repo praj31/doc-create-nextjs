@@ -9,18 +9,26 @@ import styles from '../../../../styles/User.module.css'
 import { RichTextEditor } from '../../../../components/RichTextEditor'
 import { useRouter } from 'next/router'
 import { getPageData, updatePageData } from '../../../../services/PageHandler'
+import { stateFromHTML } from 'draft-js-import-html'
 
 const TextEditor: React.FunctionComponent = (): JSX.Element => {
   const [editor, setEditor] = useState<boolean>(false)
   const router = useRouter()
   const [slug, setslug] = useState<any>('')
   const [changesActive, setChangesActive] = useState<boolean>(true)
+  const [values, setvalues] = useState<any>({
+    chapterName: '',
+    projectName: '',
+    username: '',
+  })
 
   const [editorState, setEditorState] = useState<EditorState>(
     EditorState.createEmpty()
   )
 
   const chapterName = router.query['chapter-name']
+  const projectName = router.query['project-name']
+  const username = router.query['username']
 
   useEffect(() => {
     const pageSlug = router.query['chapter-name']
@@ -30,9 +38,21 @@ const TextEditor: React.FunctionComponent = (): JSX.Element => {
     }
   }, [chapterName])
 
+  useEffect(() => {
+    if (projectName && username && chapterName) {
+      setvalues({
+        chapterName: chapterName,
+        projectName: projectName,
+        username: username,
+      })
+    }
+  }, [projectName, username, chapterName])
+
   const getData = async (slug: any) => {
     const getData = await getPageData(slug)
     console.log(getData.data.data.content)
+    const content = getData.data.data.content
+    setEditorState(EditorState.createWithContent(stateFromHTML(content)))
     // setEditorState(getData.data.data.content)
   }
 
@@ -40,7 +60,7 @@ const TextEditor: React.FunctionComponent = (): JSX.Element => {
     try {
       const html = stateToHTML(editorState.getCurrentContent())
       setChangesActive(true)
-      console.log('Slug --- ', slug)
+
       const data = await updatePageData(slug, html)
       console.log('Data ', data)
     } catch (error) {}
@@ -68,7 +88,7 @@ const TextEditor: React.FunctionComponent = (): JSX.Element => {
       <Layout>
         <div className="grid-121">
           <div className={styles.navigate_back}>
-            <Link href="/username/project-name">
+            <Link href={`/${username}/${projectName}`}>
               <div>
                 <IoChevronBackOutline /> Back to Chapters
               </div>
@@ -92,7 +112,9 @@ const TextEditor: React.FunctionComponent = (): JSX.Element => {
             >
               Save Changes
             </button>
-            <Link href="/username/project-name/chapter-name/preview">
+            <Link
+              href={`/${values.username}/${values.projectName}/${values.chapterName}/preview`}
+            >
               <a target="_blank">
                 <button className="btn-primary">Preview</button>
               </a>
