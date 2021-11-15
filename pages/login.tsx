@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Image from 'next/image'
 import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -10,8 +11,8 @@ import { saveCookie, saveJSONCookie } from '../utils/cookie-helper'
 
 const Login: React.FunctionComponent = (): JSX.Element => {
   const router = useRouter()
-  const [email, setEmail] = useState('harvey@gmail.com')
-  const [password, setPassword] = useState('test0000')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   const login = async () => {
     try {
@@ -32,13 +33,7 @@ const Login: React.FunctionComponent = (): JSX.Element => {
       <div className={styles.wrapper}>
         <div className={styles.container}>
           <div className={styles.logo}>
-            <div
-              style={{
-                width: '64px',
-                height: '64px',
-                backgroundColor: '#cccccc',
-              }}
-            ></div>
+            <Image src={'/logo.png'} width={72} height={72} alt={'Logo'} />
           </div>
           <div className={styles.title}>
             <h1>Log in</h1>

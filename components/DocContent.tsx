@@ -26,10 +26,10 @@ export const DocContent: React.FunctionComponent = (): JSX.Element => {
             <div className={styles.header}>
               <h1 className={styles.chapter_title}>{data.name}</h1>
               <div className={styles.meta}>
-                <div className={styles.user_info}>Published By @username</div>
-                <div className={styles.save}>
+                {/* <div className={styles.user_info}>Published By @username</div> */}
+                {/* <div className={styles.save}>
                   <IoBookmarkOutline />
-                </div>
+                </div> */}
               </div>
             </div>
             <div

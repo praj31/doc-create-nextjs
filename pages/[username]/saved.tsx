@@ -19,7 +19,7 @@ const Saved: React.FunctionComponent = (): JSX.Element => {
 
   const getData = (bookmarks: string[]) => {
     let finalData: any[] = []
-    bookmarks.forEach(async (element) => {
+    bookmarks?.forEach(async (element) => {
       const data = await searchDocument(element)
       finalData.push(data.data.data)
     })
@@ -38,7 +38,7 @@ const Saved: React.FunctionComponent = (): JSX.Element => {
           </div>
           <input type="text" placeholder="Search saved projects" />
         </div>
-        {data.map((element) => (
+        {data?.map((element) => (
           <SavedCard
             projectTitle={element.documentName}
             projectDescription={element.description}

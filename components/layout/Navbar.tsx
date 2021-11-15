@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { ActiveLinkContext } from '../../context'
 import {
   IoBookmark,
@@ -14,10 +14,15 @@ import {
 } from 'react-icons/io5'
 import { useContext } from 'react'
 import styles from '../../styles/Navbar.module.css'
+import { getJSONCookie } from '../../utils/cookie-helper'
 
 export const Navbar: React.FunctionComponent = (): JSX.Element => {
   const { activeLink } = useContext(ActiveLinkContext)
-
+  const [username, setusername] = useState('')
+  useEffect(() => {
+    const user = getJSONCookie('user')
+    setusername(user.username)
+  }, [])
   return (
     <>
       <nav className={styles.nav}>
@@ -28,7 +33,7 @@ export const Navbar: React.FunctionComponent = (): JSX.Element => {
               <Link
                 href={{
                   pathname: '/[username]/ongoing-projects',
-                  query: { username: 'username' },
+                  query: { username: username },
                 }}
               >
                 {activeLink === 'home' ? <IoHome /> : <IoHomeOutline />}
@@ -38,7 +43,7 @@ export const Navbar: React.FunctionComponent = (): JSX.Element => {
               <Link
                 href={{
                   pathname: '/[username]/saved',
-                  query: { username: 'username' },
+                  query: { username: username },
                 }}
               >
                 {activeLink === 'saved' ? (
@@ -63,7 +68,7 @@ export const Navbar: React.FunctionComponent = (): JSX.Element => {
                 <Link
                   href={{
                     pathname: '/[username]/settings',
-                    query: { username: 'username' },
+                    query: { username: username },
                   }}
                 >
                   <div>

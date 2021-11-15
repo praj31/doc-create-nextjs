@@ -68,7 +68,7 @@ const Project: React.FunctionComponent = (): JSX.Element => {
               New Chapter
             </div>
             <NewChapterModal
-              orderNo={titles.length + 1}
+              orderNo={titles?.length + 1}
               documentId={docId?.toString().split('--')[1]}
               showModal={showNewChapterModal}
               setShowModal={setShowNewChapterModal}
