@@ -1,34 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <h1 align="center">DocCreate</h1>
+</div>
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+DocCreate is a content management system (CMS) that allows these novice developers to easily create documentation for their low scale projects, in the format as used by major technology documentations on the internet, just to get acquainted with software engineering needs and become better and responsible developers.
+This software is also useful for other students who want to maintain digital notes in a structured format and share them with their peers.
+
+### Source Code
+<ul>
+  <li><a href="https://github.com/praj31/doc-create-nextjs">Frontend </a></li>
+  <li><a href="https://github.com/jainam240101/doc-create">Backend</a></li>
+</ul>  
+
+
+### Built With
+
+This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+
+* GoLang
+* NextJS
+* Redis
+* PostgreSQL
+* GORM 
+* JWT  
+
+
+
+<!-- GETTING STARTED -->
 ## Getting Started
 
-First, run the development server:
+To get the project started first clone this repository for the Backend code and <a href="https://github.com/praj31/doc-create-nextjs">Frontend</a>. Build the API using <strong>go build</strong> and it creates a .exe file and start the frontend server using <strong>yarn start</strong>. Open <a href="http://loclahost:3000">localhost:3000</a>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This is an example of how to list things you need to use the software and how to install them.
+* NodeJS
+* GoLang
+* Redis
+* PostgreSQL
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.tsx`.
+This is list of things that you need to use the software
+  GoLang
+  Redis
+  PostgreSQL
+  JWT
+  ReactJS
+  NextJS
+  
+## Contributing
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-## Learn More
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
 
-To learn more about Next.js, take a look at the following resources:
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<!-- CONTACT -->
+## Contact
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Jainam Mehta - [@jainam240101](https://twitter.com/jainam240101) - jainamm47@gmail.com
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
