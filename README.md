@@ -35,26 +35,17 @@ This section should list any major frameworks/libraries used to bootstrap your p
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get the project started first clone this repository for the Backend code and <a href="https://github.com/praj31/doc-create-nextjs">Frontend</a>. Build the API using <strong>go build</strong> and it creates a .exe file and start the frontend server using <strong>yarn start</strong>. Open <a href="http://loclahost:3000">localhost:3000</a>
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* NodeJS
-* GoLang
-* Redis
-* PostgreSQL
+Clone the backend and frontend repositories and start the development server.
 
 ### Prerequisites
 
 This is list of things that you need to use the software
-  GoLang
-  Redis
-  PostgreSQL
-  JWT
-  ReactJS
-  NextJS
-  
+- Golang
+- Redis
+- PostgreSQL
+- NodeJS
+ 
+   
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -73,6 +64,6 @@ Don't forget to give the project a star! Thanks again!
 
 Jainam Mehta - [@jainam240101](https://twitter.com/jainam240101) - jainamm47@gmail.com
 <br/>
-Pratikraj Rajput - [@praj31](https://twitter.com/praj31) - rajputpraj.31@gmail.com
+Pratikraj Rajput - [@praj31](https://twitter.com/prajx31) - rajputpraj.31@gmail.com
 
 
